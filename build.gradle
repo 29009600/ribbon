@@ -15,7 +15,16 @@ subprojects {
     group = "com.netflix.${githubProjectName}" // TEMPLATE: Set to organization of project
 
     repositories {
-        jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '5ed60023893c20c8bfb11585'
+                password 'GiZrRipttBEP'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2006141-snapshot-wOCofp/'
+        }
     }
 
     if (project.hasProperty('useMavenLocal')) {
@@ -25,7 +34,7 @@ subprojects {
     }
     if (project.getProperty('status').equals("snapshot")) {
         repositories {
-            maven { url 'http://oss.jfrog.org/oss-snapshot-local' }
+            maven { url 'https://maven.aliyun.com/repository/public' }
         }
     }
 }
